@@ -69,6 +69,7 @@ class HomeRestController {
 	public String dbtest(){
 
 		String sql = "SELECT * FROM customer";
+		System.out.println ("connection info"+env.getProperty("spring.datasource.url"));
 		Connection conn = null;
 
 		try {
