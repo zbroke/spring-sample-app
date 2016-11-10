@@ -69,11 +69,11 @@ class HomeRestController {
 	public String dbtest(){
 
 		String sql = "SELECT * FROM customer";
-		System.out.println ("connection info"+env.getProperty("spring.datasource.url"));
 		Connection conn = null;
 
 		try {
-			conn =  DriverManager.getConnection(env.getProperty("spring.datasource.url"),env.getProperty("spring.datasource.username"),env.getProperty("spring.datasource.password"));
+			//conn =  DriverManager.getConnection(env.getProperty("spring.datasource.url"),env.getProperty("spring.datasource.username"),env.getProperty("spring.datasource.password"));
+			conn =  DriverManager.getConnection("jdbc:mysql://"+env.getProperty("MYSQL_SERVICE_HOST")+":3306/"+env.getProperty("MYSQL_DATABASE")+"?useSSL=false",env.getProperty("MYSQL_USER"),env.getProperty("MYSQL_PASSWORD"));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			rs.next();
