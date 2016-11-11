@@ -73,13 +73,17 @@ class HomeRestController {
 
 		try {
 			//conn =  DriverManager.getConnection(env.getProperty("spring.datasource.url"),env.getProperty("spring.datasource.username"),env.getProperty("spring.datasource.password"));
-			String connURL="jdbc:mysql://"+env.getProperty("MYSQL_SERVICE_HOST")+":3306/"+env.getProperty("MYSQL_DATABASE")+"?useSSL=false";
+			String connURL="jdbc:mysql://"+env.getProperty("MYSQL_SERVICE_HOST")+":"+env.getProperty("MYSQL_SERVICE_PORT")+"/"+env.getProperty("MYSQL_DATABASE")+"?useSSL=false";
 			System.out.println("URL:  "+connURL);
 			conn =  DriverManager.getConnection(connURL,env.getProperty("MYSQL_USER"),env.getProperty("MYSQL_PASSWORD"));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			rs.next();
-			String res="<h1>"+rs.getInt("CUST_ID") + rs.getString("NAME")+rs.getInt("Age")+"</h1>";
+			String res="<h1>Customers List</h1></br>"
+			while (rs.next()) {
+			     res=res+"<h4> CustomerId: "+rs.getInt("CUST_ID") + "Customer Name: "+ rs.getString("NAME")+"Age: "+rs.getInt("Age")+"</h4></br>";
+			} finally {
+ 				 rs.close();
+			}
 			return res;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
