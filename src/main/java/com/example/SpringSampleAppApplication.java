@@ -81,15 +81,14 @@ class HomeRestController {
 			String res="<h1>Customers List</h1></br>"
 			while (rs.next()) {
 			     res=res+"<h4> CustomerId: "+rs.getInt("CUST_ID") + "Customer Name: "+ rs.getString("NAME")+"Age: "+rs.getInt("Age")+"</h4></br>";
-			} finally {
- 				 rs.close();
-			}
+			} 
 			return res;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
 			if (conn != null) {
 				try {
+					rs.close();
 					conn.close();
 				} catch (SQLException e) {}
 			}
