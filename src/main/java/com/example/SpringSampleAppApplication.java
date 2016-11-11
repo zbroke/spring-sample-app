@@ -78,7 +78,7 @@ class HomeRestController {
 			conn =  DriverManager.getConnection(connURL,env.getProperty("MYSQL_USER"),env.getProperty("MYSQL_PASSWORD"));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			String res="<h1>Customers List</h1></br>"
+			String res="<h1>Customers List</h1></br>";
 			while (rs.next()) {
 			     res=res+"<h4> CustomerId: "+rs.getInt("CUST_ID") + "Customer Name: "+ rs.getString("NAME")+"Age: "+rs.getInt("Age")+"</h4></br>";
 			} 
