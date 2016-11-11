@@ -80,7 +80,7 @@ class HomeRestController {
 			ResultSet rs = ps.executeQuery();
 			String res="<h1>Customers List</h1></br>";
 			while (rs.next()) {
-			     res=res+"<h4> CustomerId: "+rs.getInt("CUST_ID") + "Customer Name: "+ rs.getString("NAME")+"Age: "+rs.getInt("Age")+"</h4></br>";
+			     res=res+"CustomerId: "+rs.getInt("CUST_ID") + "  Customer Name: "+ rs.getString("NAME")+"  Age: "+rs.getInt("Age")+"</br>";
 			} 
 			rs.close();
 			return res;
