@@ -18,6 +18,19 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+	<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter -->
+    <dependencyManagement>
+        <dependencies>
+		<dependency>
+    			<groupId>org.springframework.cloud</groupId>
+    			<artifactId>spring-cloud-starter</artifactId>
+    			<version>1.1.5.RELEASE</version>
+	                <type>pom</type>
+        	        <scope>import</scope>
+		</dependency>
+        </dependencies>
+    </dependencyManagement>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -48,10 +61,9 @@
 		</dependency>
 
 
-                <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-client -->
                 <dependency>
                         <groupId>org.springframework.cloud</groupId>
-                        <artifactId>spring-cloud-config-server</artifactId>
+                        <artifactId>spring-cloud-config-client</artifactId>
                 </dependency>
         
 
