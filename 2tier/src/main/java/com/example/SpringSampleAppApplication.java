@@ -30,6 +30,7 @@ public class SpringSampleAppApplication {
 
 @RestController
 @RequestMapping("/")
+@RefreshScope
 class HomeRestController {
 
 	boolean healthy=true;
@@ -76,6 +77,7 @@ class HomeRestController {
 			//String connURL="jdbc:mysql://"+env.getProperty("MYSQL_SERVICE_HOST")+":"+env.getProperty("MYSQL_SERVICE_PORT")+"/"+env.getProperty("MYSQL_DATABASE")+"?useSSL=false";
 			//System.out.println("URL:  "+connURL);
 			//conn =  DriverManager.getConnection(connURL,env.getProperty("MYSQL_USER"),env.getProperty("MYSQL_PASSWORD"));
+                        System.out.println("connection url: "+env.getProperty("spring.datasource.url"));
 			System.out.println("Username: "+env.getProperty("spring.datasource.username")+"\nPassword: "+env.getProperty("spring.datasource.password"));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
