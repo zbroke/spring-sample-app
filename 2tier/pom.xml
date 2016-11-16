@@ -47,16 +47,17 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
                 <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-client -->
                 <dependency>
                         <groupId>org.springframework.cloud</groupId>
                         <artifactId>spring-cloud-config-client</artifactId>
                 </dependency>
         
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
 
 	</dependencies>
 
